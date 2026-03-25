@@ -13,13 +13,14 @@ import keyboard
 print("""
 # Initialize:
 # Select Device
-# Press 'G' to play the sound
-# Press 'L' to exit the soundboard
+# Press 'B' to play the sound
+# Press ']' to exit the soundboard
 """)
 
-#mixer.init(devicename="SteelSeries Sonar - Microphone (SteelSeries Sonar Virtual Audio Device)") # INPUT
-#mixer.init(devicename="Headphones (JLab GO Air Pop Stereo") # OUTPUT
-mixer.init(devicename="Speakers (Realtek(R) Audio)") # OUTPUT
+#mixer.init(devicename="Microphone Array (Realtek(R) Audio)") # INPUT
+mixer.init(devicename="SteelSeries Sonar - Microphone (SteelSeries Sonar Virtual Audio Device)") # INPUT
+#m  ixer.init(devicename="Headphones (JLab GO Air Pop Stereo") # OUTPUT
+#mixer.init(devicename="Speakers (Realtek(R) Audio)") # OUTPUT
 
 
 
@@ -28,6 +29,7 @@ for i in pygame._sdl2.audio.get_audio_device_names(False): # Output devices
 
 
 mixer.music.load("moo audio for soundboard.wav")
+mixer.music.set_volume(0.25)
 #mixer.music.play()
 
 def check():
@@ -42,7 +44,7 @@ def check():
 
 keyboard.add_hotkey('b', lambda: check())
 
-while keyboard.wait('l'):
+while keyboard.wait(']'):
     keyboard.wait()
 
 mixer.quit()
